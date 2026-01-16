@@ -3,7 +3,7 @@
 #include "sensors.h"
 #include "data_sender.h"
 
-/* ================= GLOBAL VAR ================= */
+/* GLOBAL VARIABLES */
 unsigned long lastSensorRead = 0;
 unsigned long lastReconnect = 0;
 bool isConnectedToMaster = false;
@@ -91,9 +91,6 @@ void loop() {
 // #include <ArduinoJson.h>
 // #include <DHT.h>
 
-// /* =====================================================
-//  *                  PIN CONFIGURATION
-//  * ===================================================== */
 
 // #define LDR_PIN         0       
 // #define MQ2_PIN         1       
@@ -101,9 +98,7 @@ void loop() {
 // #define DHT_PIN         5       // DHT22 data pin
 // #define DHT_TYPE        DHT22
 
-// /* =====================================================
-//  *                  WIFI CONFIGURATION
-//  * ===================================================== */
+
 // // Connect to Master AP
 // const char* WIFI_SSID = "ESP32_MASTER_AP";
 // const char* WIFI_PASS = "12345678";
@@ -112,21 +107,12 @@ void loop() {
 // const char* SERVER_IP = "192.168.4.1";      // Master AP default IP
 // const uint16_t SERVER_PORT = 8888;
 
-// /* =====================================================
-//  *                  TIMING CONFIGURATION
-//  * ===================================================== */
 // #define SENSOR_READ_INTERVAL    2000    // Read sensors every 2s
 // #define RECONNECT_INTERVAL      5000    // Try reconnect every 5s
 
-// /* =====================================================
-//  *                  GLOBAL OBJECTS
-//  * ===================================================== */
 // DHT dht(DHT_PIN, DHT_TYPE);
 // WiFiClient tcpClient;
 
-// /* =====================================================
-//  *                  GLOBAL VARIABLES
-//  * ===================================================== */
 // unsigned long lastSensorRead = 0;
 // unsigned long lastReconnect = 0;
 // bool isConnectedToMaster = false;
@@ -142,16 +128,10 @@ void loop() {
 
 // sensor_data_t sensorData = {0};
 
-// /* =====================================================
-//  *                  FUNCTION PROTOTYPES
-//  * ===================================================== */
 // void connectToMaster();
 // void readAllSensors();
 // void sendDataToMaster();
 
-// /* =====================================================
-//  *                  SETUP
-//  * ===================================================== */
 // void setup()
 // {
 //     Serial.begin(115200);
@@ -209,9 +189,6 @@ void loop() {
 //     Serial.println("========================================\n");
 // }
 
-// /* =====================================================
-//  *                  MAIN LOOP
-//  * ===================================================== */
 // void loop()
 // {
 //     // Check WiFi connection
@@ -255,9 +232,6 @@ void loop() {
 //     delay(10);
 // }
 
-// /* =====================================================
-//  *              CONNECT TO MASTER TCP SERVER
-//  * ===================================================== */
 // void connectToMaster()
 // {
 //     Serial.print("Connecting to Master TCP Server (");
@@ -275,9 +249,6 @@ void loop() {
 //     }
 // }
 
-// /* =====================================================
-//  *              READ ALL SENSORS
-//  * ===================================================== */
 // void readAllSensors()
 // {
 //     // Read DHT22
@@ -308,9 +279,6 @@ void loop() {
 //                   sensorData.mq135);
 // }
 
-// /* =====================================================
-//  *              SEND DATA TO MASTER VIA TCP
-//  * ===================================================== */
 // void sendDataToMaster()
 // {
 //     // Create JSON document
