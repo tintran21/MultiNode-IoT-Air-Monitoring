@@ -3,7 +3,8 @@
 #include <Wire.h>
 #include "handle.h"
 
-void setup() {
+void setup() 
+{
   Serial.begin(115200);
 
   pinMode(LED_LDR_PIN, OUTPUT);
@@ -42,7 +43,8 @@ void setup() {
   Serial.println("Nano Ready!");
 }
 
-void loop() {
+void loop() 
+{
   while (Serial.available()) 
   {
     char c = Serial.read();
@@ -95,9 +97,6 @@ void loop() {
 // #include <Wire.h>
 // #include <LiquidCrystal_I2C.h>
 
-// /* =====================================================
-//  * PIN CONFIGURATION
-//  * ===================================================== */
 // // Output Pins
 // #define LED_LDR_PIN       5    
 // #define LED_MQ2_PIN       6
@@ -111,15 +110,10 @@ void loop() {
 // #define LCD_COLS          20
 // #define LCD_ROWS          4
 
-// /* =====================================================
-//  * GLOBAL OBJECTS
-//  * ===================================================== */
+
 // LiquidCrystal_I2C lcd(LCD_ADDR, LCD_COLS, LCD_ROWS);
 // String uartBuffer = ""; 
 
-// /* =====================================================
-//  * STATE VARIABLES
-//  * ===================================================== */
 // bool ledLdrState = false;
 // bool mq2AlarmState = false;
 // bool mq135AlarmState = false;
@@ -129,23 +123,15 @@ void loop() {
 // float lastTemp = 0.0;
 // float lastHumi = 0.0;
 
-// /* =====================================================
-//  * TIMING (BLINKING)
-//  * ===================================================== */
 // unsigned long lastBlink = 0;
 // const unsigned long BLINK_INTERVAL = 400; // 200ms chớp tắt nhanh cảnh báo
 // bool blinkState = false;
 
-// /* =====================================================
-//  * FUNCTION PROTOTYPES
-//  * ===================================================== */
 // void handleUARTCommand(String cmd);
 // void updateLCDStatus(); // Cập nhật dòng chữ trạng thái (Safe/Danger)
 
-// /* =====================================================
-//  * SETUP
-//  * ===================================================== */
-// void setup() {
+// void setup() 
+//  {
 //   Serial.begin(115200); // Phải khớp với NodeMaster
 
 //   // Cấu hình chân Output
@@ -176,11 +162,10 @@ void loop() {
 //   lcd.setCursor(0, 0);
 //   lcd.print("   AIR MONITORING   ");
 
-//   // Hàng 1: Nhiệt độ - Độ ẩm (Vẽ khuôn mẫu trước)
 //   // T: --.-* | H: --.-%
 //   lcd.setCursor(0, 1);
 //   lcd.print("T: --.-");
-//   lcd.write(223); // Ký tự độ C (dấu chấm tròn nhỏ) trong bảng mã ASCII LCD
+//   lcd.write(223); 
 //   lcd.print(" | H: --.-%");
 
 //   // Hàng 2: Gas
@@ -194,11 +179,8 @@ void loop() {
 //   Serial.println("Nano Ready!");
 // }
 
-// /* =====================================================
-//  * LOOP
-//  * ===================================================== */
 // void loop() {
-//   // 1. Đọc UART không chặn (Non-blocking UART Read)
+//   
 //   while (Serial.available()) {
 //     char c = (char)Serial.read();
 //     if (c == '\n') { // Gặp ký tự xuống dòng là kết thúc lệnh
@@ -212,7 +194,7 @@ void loop() {
 //     }
 //   }
 
-//   // 2. Xử lý hiệu ứng Chớp tắt (Blinking) cho Alarm
+//   
 //   unsigned long now = millis();
 //   if (now - lastBlink >= BLINK_INTERVAL) {
 //     lastBlink = now;
@@ -227,8 +209,6 @@ void loop() {
 //       digitalWrite(BUZZER_MQ2_PIN, LOW);
 //     }
 
-//     // Alarm MQ135 (Air Quality)
-//     // Nếu MQ2 đang kêu thì ưu tiên MQ2, MQ135 chỉ nháy đèn, không kêu để đỡ ồn
 //     if (mq135AlarmState) {
 //       digitalWrite(LED_MQ135_PIN, blinkState ? HIGH : LOW);
 //       if (!mq2AlarmState) { 
@@ -240,7 +220,6 @@ void loop() {
 //     }
 //   }
 
-//   // 3. Điều khiển LED LDR (Sáng đứng yên)
 //   digitalWrite(LED_LDR_PIN, ledLdrState ? HIGH : LOW);
 
 //   // 4. Điều khiển Relay (Logic ngược: LOW là BẬT)
@@ -251,9 +230,6 @@ void loop() {
 //   }
 // }
 
-// /* =====================================================
-//  * HANDLE UART COMMANDS
-//  * ===================================================== */
 // void handleUARTCommand(String cmd) {
 //   // Cú pháp: KEY:VALUE
 //   int sep = cmd.indexOf(':');
@@ -289,25 +265,21 @@ void loop() {
 //       updateLCDStatus();
 //     }
 //   }
-//   // --- CẬP NHẬT NHIỆT ĐỘ (Gọn nhẹ, in đè trực tiếp) ---
 //   else if (key == "TEMP") {
 //     lcd.setCursor(0, 1);
 //     lcd.print("T: ");
-//     lcd.print(value.toFloat(), 1); // In số (VD: 30.5)
-//     lcd.write((char)223);          // In dấu độ ngay sau số
+//     lcd.print(value.toFloat(), 1); 
+//     lcd.write((char)223);          
 //   }
   
 //   // --- CẬP NHẬT ĐỘ ẨM ---
 //   else if (key == "HUMI") {
 //     lcd.setCursor(14, 1); 
-//     lcd.print(value.toFloat(), 1); // In số (VD: 70.5)     
-//     lcd.print("%");                // In dấu % ngay sau số
+//     lcd.print(value.toFloat(), 1);  
+//     lcd.print("%");                
 //   }
 // }
 
-// /* =====================================================
-//  * UPDATE LCD STATUS TEXT
-//  * ===================================================== */
 // void updateLCDStatus() {
 //   // Cập nhật dòng 2 (MQ2)
 //   lcd.setCursor(5, 2); // Vị trí sau "GAS: "
