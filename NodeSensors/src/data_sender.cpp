@@ -1,7 +1,8 @@
 #include "config.h"
 #include "data_sender.h"
 
-void sendDataToMaster() {
+void sendDataToMaster() 
+{
     StaticJsonDocument<256> doc;
     doc["temp"] = sensorData.temperature;
     doc["humi"] = sensorData.humidity;

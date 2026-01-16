@@ -10,11 +10,13 @@ const uint16_t SERVER_PORT = 8888;
 DHT dht(DHT_PIN, DHT_TYPE);
 WiFiClient tcpClient;
 
-void connectWiFi() {
+void connectWiFi() 
+{
     WiFi.mode(WIFI_STA);
     WiFi.begin(WIFI_SSID, WIFI_PASS);
 }
 
-void connectToMaster() {
+void connectToMaster() 
+{
     tcpClient.connect(SERVER_IP, SERVER_PORT);
 }

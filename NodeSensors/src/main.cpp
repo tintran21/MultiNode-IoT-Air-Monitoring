@@ -8,7 +8,8 @@ unsigned long lastSensorRead = 0;
 unsigned long lastReconnect = 0;
 bool isConnectedToMaster = false;
 
-void setup() {
+void setup() 
+{
     Serial.begin(115200);
     delay(1000);
 
@@ -22,21 +23,25 @@ void setup() {
     connectWiFi();
 }
 
-void loop() {
-    if (WiFi.status() != WL_CONNECTED) {
+void loop() 
+{
+    if (WiFi.status() != WL_CONNECTED) 
+    {
         WiFi.reconnect();
         delay(5000);
         return;
     }
 
     if (!tcpClient.connected()) {
-        if (millis() - lastReconnect >= RECONNECT_INTERVAL) {
+        if (millis() - lastReconnect >= RECONNECT_INTERVAL) 
+        {
             lastReconnect = millis();
             connectToMaster();
         }
     }
 
-    if (millis() - lastSensorRead >= SENSOR_READ_INTERVAL) {
+    if (millis() - lastSensorRead >= SENSOR_READ_INTERVAL) 
+    {
         lastSensorRead = millis();
         readAllSensors();
         sendDataToMaster();

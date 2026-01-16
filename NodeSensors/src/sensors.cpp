@@ -3,7 +3,8 @@
 
 sensor_data_t sensorData = {0};
 
-void readAllSensors() {
+void readAllSensors() 
+{
     sensorData.temperature = dht.readTemperature();
     sensorData.humidity = dht.readHumidity();
     sensorData.ldr = analogRead(LDR_PIN);
