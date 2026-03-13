@@ -1,4 +1,4 @@
-# 🌫️ Multi-node Air Quality Monitoring 
+# 🌫️ Multi-node Air Monitoring 
 
 ## Introduction
 This repository contains the source code for **Multi-node Air Quality Monitoring**, designed with a clear functional separation between nodes:
